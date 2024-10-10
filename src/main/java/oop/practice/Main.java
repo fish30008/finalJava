@@ -14,6 +14,9 @@ public class Main {
         File inputFile = new File("src/main/resources/test-input.json");
         JsonNode data = mapper.readTree(inputFile).get("data");
 
+        File classifierFile = new File("src/main/resources/classifier.json");
+        JsonNode data2 = mapper.readTree(inputFile).get("data");
+
         Universe starWars = new Universe("starWars", new ArrayList<>());
         Universe hitchhikers = new Universe("hitchHiker", new ArrayList<>());
         Universe marvel = new Universe("marvel", new ArrayList<>());
@@ -27,6 +30,10 @@ public class Main {
             System.out.println(individual.getPlanet());
             System.out.println(individual.getTraits());
 
+        }
+
+        for (JsonNode entry : data2) {
+            OwnClassifier classifier = mapper.treeToValue(entry);
         }
 
 //        mapper.writeValue(new File("src/main/resources/output/starwars.json"), starWars);
