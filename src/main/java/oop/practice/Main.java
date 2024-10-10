@@ -22,14 +22,17 @@ public class Main {
 
         for (JsonNode entry : data) {
             Individual individual = new Individual(entry);
-            System.out.println(individual.getAge() + "\n");
+            System.out.println(individual.getId());
+            System.out.println(individual.getAge());
+            System.out.println(individual.getPlanet());
+            System.out.println(individual.getTraits());
 
         }
 
-        mapper.writeValue(new File("src/main/resources/output/starwars.json"), starWars);
-        mapper.writeValue(new File("src/main/resources/output/hitchhiker.json"), hitchhikers);
-        mapper.writeValue(new File("src/main/resources/output/rings.json"), rings);
-        mapper.writeValue(new File("src/main/resources/output/marvel.json"), marvel);
+//        mapper.writeValue(new File("src/main/resources/output/starwars.json"), starWars);
+//        mapper.writeValue(new File("src/main/resources/output/hitchhiker.json"), hitchhikers);
+//        mapper.writeValue(new File("src/main/resources/output/rings.json"), rings);
+//        mapper.writeValue(new File("src/main/resources/output/marvel.json"), marvel);
     }
 }
 
