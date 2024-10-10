@@ -1,67 +1,49 @@
 package oop.practice;
-
-import com.fasterxml.jackson.databind.JsonNode;
 import java.util.List;
-import java.util.ArrayList;
-
-public class Individual {
-
-    //a little bit later will try to do with enum
-
-    private Integer id;
+class Individual {
+    private int id;
     private Boolean isHumanoid;
-    private Integer age;
+    private Integer age; // Use Integer instead of int
     private List<String> traits;
-    private String planet;
-
-    public Individual(JsonNode entry) {
-        if (entry.get("id") != null) {
-            this.id = entry.get("id").asInt();
-        } else {
-            this.id = null;
-        }
-
-        if (entry.get("isHumanoid") != null) {
-            this.isHumanoid = entry.get("isHumanoid").asBoolean();
-        } else {
-            this.isHumanoid = null;
-        }
-        if (entry.get("age") != null) {
-            this.age = entry.get("age").asInt();
-        } else {
-            this.age = null;
-        }
-        this.traits = new ArrayList<>();
-        if (entry.get("traits")!=null) {
-            for (JsonNode trait : entry.get("traits")) {
-                this.traits.add(trait.asText());
-            }
-        } else {
-            this.traits = null;
-        }
-        this.planet = entry.hasNonNull("planet") ? entry.get("planet").asText() : null;
-
+    private Planet planet;
+    // Enum for Planets
+    enum Planet {
+        Earth,
+        Asgard,
+        Betelgeuse,
+        Vogsphere,
+        Kashyyyk,
+        Endor
     }
-
-    // Getters
-    public Integer getId() {
+    // Getters and Setters
+    public int getId() {
         return id;
     }
-
-    public Boolean isHumanoid() {
+    public void setId(int id) {
+        this.id = id;
+    }
+    public Boolean getIsHumanoid() {
         return isHumanoid;
     }
-
+    public void setHumanoid(Boolean humanoid) {
+        isHumanoid = humanoid;
+    }
     public Integer getAge() {
         return age;
     }
-
+    public void setAge(Integer age) { // Change to Integer
+        this.age = age;
+    }
     public List<String> getTraits() {
         return traits;
     }
-
-    public String getPlanet() {
+    public void setTraits(List<String> traits) {
+        this.traits = traits;
+    }
+    public Planet getPlanet() {
         return planet;
     }
-
+    public void setPlanet(Planet planet) {
+        this.planet = planet;
+    }
 }
