@@ -1,4 +1,4 @@
-package testing;
+package oop.practice;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,14 +14,14 @@ public class Main {
         File inputFile = new File("src/main/resources/test-input.json");
         JsonNode data = mapper.readTree(inputFile).get("data");
 
-        testing.Universe starWars = new testing.Universe("starWars", new ArrayList<>());
-        testing.Universe hitchhikers = new testing.Universe("hitchHiker", new ArrayList<>());
-        testing.Universe marvel = new testing.Universe("marvel", new ArrayList<>());
-        testing.Universe rings = new testing.Universe("rings", new ArrayList<>());
+        Universe starWars = new Universe("starWars", new ArrayList<>());
+        Universe hitchhikers = new Universe("hitchHiker", new ArrayList<>());
+        Universe marvel = new Universe("marvel", new ArrayList<>());
+        Universe rings = new Universe("rings", new ArrayList<>());
 
 
         for (JsonNode entry : data) {
-            testing.Individual individual = new testing.Individual(entry);
+            Individual individual = new Individual(entry);
             System.out.println(individual.getAge() + "\n");
 
         }
