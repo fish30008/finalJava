@@ -1,7 +1,7 @@
-package oop.practice;
+package testing;
 
-//import com.fasterxml.jackson.databind.JsonNode;
-//import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,39 +11,25 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
+        //read the input
         File inputFile = new File("src/main/resources/test-input.json");
         JsonNode data = mapper.readTree(inputFile).get("data");
 
-        File classifierFile = new File("src/main/resources/classifier.json");
-        JsonNode data2 = mapper.readTree(inputFile).get("data");
+        //read the rules
+        File classifierFile = new File("src/main/resources/rules.json");
+        JsonNode classifierData = mapper.readTree(classifierFile).get("data");
 
-        Universe starWars = new Universe("starWars", new ArrayList<>());
-        Universe hitchhikers = new Universe("hitchHiker", new ArrayList<>());
-        Universe marvel = new Universe("marvel", new ArrayList<>());
-        Universe rings = new Universe("rings", new ArrayList<>());
-
-
+        //nested loop for good verification
         for (JsonNode entry : data) {
             Individual individual = new Individual(entry);
-            System.out.println(individual.getId());
-            System.out.println(individual.getAge());
-            System.out.println(individual.getPlanet());
-            System.out.println(individual.getTraits());
-
+            for (JsonNode classifierEntry : classifierData) {
+                testing.OwnClassifier classifier = new testing.OwnClassifier(classifierEntry);
+                if (classifier.matches(individual)) {
+                    //save if it's matched
+                    classifier.saveToJson(individual);
+                    break; //exit after match
+                }
+            }
         }
-
-        for (JsonNode entry : data2) {
-            OwnClassifier classifier = mapper.treeToValue(entry);
-        }
-
-//        mapper.writeValue(new File("src/main/resources/output/starwars.json"), starWars);
-//        mapper.writeValue(new File("src/main/resources/output/hitchhiker.json"), hitchhikers);
-//        mapper.writeValue(new File("src/main/resources/output/rings.json"), rings);
-//        mapper.writeValue(new File("src/main/resources/output/marvel.json"), marvel);
     }
 }
-
-record Universe(
-        String name,
-        List<JsonNode> individuals
-) { }

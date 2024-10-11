@@ -1,4 +1,4 @@
-package oop.practice;
+package testing;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.List;
@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 public class Individual {
 
-    //a little bit later will try to do with enum
-
+    //use wrapper because it can handle null values
     private Integer id;
     private Boolean isHumanoid;
     private Integer age;
     private List<String> traits;
     private String planet;
 
+    //handle null values
     public Individual(JsonNode entry) {
         if (entry.get("id") != null) {
             this.id = entry.get("id").asInt();
@@ -43,7 +43,7 @@ public class Individual {
 
     }
 
-    // Getters
+    //to get values
     public Integer getId() {
         return id;
     }
