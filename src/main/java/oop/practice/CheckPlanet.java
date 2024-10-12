@@ -6,55 +6,25 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-public class OwnClassifier {
 
-    //use wrapper because this can handle null values
+public class CheckPlanet {
+
     private String universe;
-    private Boolean isHumanoid;
-    private Integer age;
-    private List<String> traits;
     private String planet;
 
-    public OwnClassifier(JsonNode entry) {//save classifier class for every entry
-        this.universe = entry.get("universe").asText();
-        this.isHumanoid = entry.get("isHumanoid").asBoolean();
-        this.age = entry.get("age").asInt();
-        this.traits = new ArrayList<>();
-        for (JsonNode trait : entry.get("traits")) {
-            this.traits.add(trait.asText());
-        }
+    public CheckPlanet(JsonNode entry) {//save classifier class for every entry
         this.planet = entry.get("planet").asText();
+        this.universe = entry.get("universe").asText();
     }
 
-    public boolean matches(testing.Individual individual) {
+    public boolean matches1(testing.Individual individual) {
         // Match based on planet because it's main parameter of the object with wich is the best way to classify
-
-        if (individual.getTraits() != null && !individual.getTraits().isEmpty()) {
-            for (String individualTrait : individual.getTraits()) {
-                if (this.traits.contains(individualTrait)) {
-                    return true;
-
-                }
-            }
-        }
-        if(individual.isHumanoid() != null &&individual.isHumanoid() == this.isHumanoid) {
-            if(individual.getAge() != null && individual.getAge() <= this.age) return true;}
+        if (individual.getPlanet() != null && individual.getPlanet().equals(this.planet)) {
+            return true;
+        }// i know that i works not 100% correctly i will fix that !!!!
         return false;
     }
-
-
-
-
-
-
-
-
-
-
-
 
     //i did this method with gpt because i'm freshman in java
     public void saveToJson(testing.Individual individual) {
