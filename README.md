@@ -9,6 +9,8 @@
 - Individual
 - PlanetClassifier
 - OwnClassifier
+- rules.json(in the same map as input.json)
+
 
 ### Why i did like this ? 
 I consider that the most correct classifier is by Planet, so first of all, all Individuals should be checked by planet and if planet = null or it's doesn't matched, then check by other parametres. 
