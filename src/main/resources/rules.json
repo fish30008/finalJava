@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "universe": "starwars",
+      "isHumanoid": false,
+      "planet":["Kashyyk, Endor"],
+      "age": 250,
+      "traits": [
+        "HAIRY"
+      ]
+    },
+    {
+      "universe": "marvel",
+      "planet":"Asgard",
+      "isHumanoid": true,
+      "age": 5000,
+      "traits": ["BLONDE", "TALL"]
+    },
+    {
+      "universe": "hitchhikers",
+      "planet":"Asgard",
+      "isHumanoid": false,
+      "age": 150,
+      "traits": [
+        "EXTRA_ARMS", "EXTRA_HEAD", "GREEN", "BULKY"
+      ]
+    },
+    {
+      "universe": "rings",
+      "isHumanoid": true,
+      "traits": [
+        "BULKY", "SHORT", "BLONDE", "POINTY_EARS"
+      ]
+    }
+  ]
+}
