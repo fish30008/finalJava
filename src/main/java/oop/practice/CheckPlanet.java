@@ -13,7 +13,7 @@ public class CheckPlanet {
     private String universe;
     private String planet;
 
-    public CheckPlanet(JsonNode entry) {//save classifier class for every entry
+    public CheckPlanet(JsonNode entry) {//save classifier class for planet
         this.planet = entry.get("planet").asText();
         this.universe = entry.get("universe").asText();
     }
@@ -22,7 +22,7 @@ public class CheckPlanet {
         // Match based on planet because it's main parameter of the object with wich is the best way to classify
         if (individual.getPlanet() != null && individual.getPlanet().equals(this.planet)) {
             return true;
-        }// i know that i works not 100% correctly i will fix that !!!!
+        }
         return false;
     }
 
@@ -49,7 +49,6 @@ public class CheckPlanet {
                 // If file does not exist, create a new array
                 individualsArray = mapper.createArrayNode();
             }
-
             // Add the new individual to the array
             JsonNode individualNode = mapper.valueToTree(individual);
             individualsArray.add(individualNode);

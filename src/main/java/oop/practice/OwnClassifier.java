@@ -16,7 +16,6 @@ public class OwnClassifier {
     private Boolean isHumanoid;
     private Integer age;
     private List<String> traits;
-    private String planet;
 
     public OwnClassifier(JsonNode entry) {//save classifier class for every entry
         this.universe = entry.get("universe").asText();
@@ -26,7 +25,6 @@ public class OwnClassifier {
         for (JsonNode trait : entry.get("traits")) {
             this.traits.add(trait.asText());
         }
-        this.planet = entry.get("planet").asText();
     }
 
     public boolean matches(testing.Individual individual) {
@@ -44,17 +42,6 @@ public class OwnClassifier {
             if(individual.getAge() != null && individual.getAge() <= this.age) return true;}
         return false;
     }
-
-
-
-
-
-
-
-
-
-
-
 
     //i did this method with gpt because i'm freshman in java
     public void saveToJson(testing.Individual individual) {
