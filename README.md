@@ -2,7 +2,7 @@
 
 ## Short tutorial about my work
 
-### PS(at the beggining i didn't new about "fork" in github, so i don't have all the dependencies in the my work)
+### PS(at the beggining i didn't new about "fork" in github and how does it work, so i don't have all of the dependencies in the my work)
 
 ## Main files
 - Main
