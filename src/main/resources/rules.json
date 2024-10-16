@@ -1,35 +1,65 @@
 {
   "data": [
     {
+      "universe": "rings",
+      "planet": "Earth",
+      "isHumanoid": true,
+      "age": 80,
+      "traits": [
+        "BULKY", "SHORT"
+      ]
+    },
+    {
+      "universe": "rings",
+      "planet": "Earth",
+      "isHumanoid": true,
+      "age": 80,
+      "traits": [
+        "BLONDE", "POINTY_EARS"
+      ]
+    },
+    {
       "universe": "starwars",
+
+      "planet":"Kashyyk",
       "isHumanoid": false,
-      "planet":["Kashyyk, Endor"],
+      "age": 100,
+      "traits": [
+        "HAIRY", "TALL"
+      ]
+    },
+    {
+      "universe": "starwars",
+      "planet":"Endor",
+      "isHumanoid": false,
       "age": 250,
       "traits": [
-        "HAIRY"
+        "HAIRY", "SHORT"
       ]
     },
     {
       "universe": "marvel",
       "planet":"Asgard",
       "isHumanoid": true,
-      "age": 5000,
+      "age": 8000,
       "traits": ["BLONDE", "TALL"]
     },
     {
       "universe": "hitchhikers",
-      "planet":"Asgard",
+      "planet": "Betelgeuse",
       "isHumanoid": false,
       "age": 150,
       "traits": [
-        "EXTRA_ARMS", "EXTRA_HEAD", "GREEN", "BULKY"
+        "GREEN", "BULKY"
       ]
     },
     {
-      "universe": "rings",
-      "isHumanoid": true,
+      "universe": "hitchhikers",
+      "planet": "Vogsphere",
+      "isHumanoid": false,
+      "age": 50,
       "traits": [
-        "BULKY", "SHORT", "BLONDE", "POINTY_EARS"
+        "EXTRA_ARMS", "EXTRA_HEAD"
       ]
     }
   ]
