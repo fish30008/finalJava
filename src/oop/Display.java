@@ -33,20 +33,26 @@ public class Display {
     }
 
     public void compareSize(Display m){
-        String result1 = (this.height < m.getHeight()) ? m.getModel() + " have bigger height "
-                + this.getModel()  : m.getModel() + " have less height " + this.getModel();
-        String result2 = (this.width < m.getWidth()) ? m.getModel() + " have bigger width "
-                + this.getModel()  : m.getModel() + " have less width " + this.getModel();
-
+        String result1 = (this.height > m.getHeight()) ? m.getModel() + " have less height "
+                + this.getModel()  : (this.height == m.getHeight()) ? "   "+ m.getModel() + " have same height "
+                + this.getModel() :m.getModel() + " have bigger height " + this.getModel();
+        String result2;
+        if(this.width <  m.getWidth()){ result2 = m.getModel() + " have bigger width "
+                + this.getModel();} else if (this.width == m.getWidth()){ result2 = m.getModel() + " have same width ";}
+        else { result2 = m.getModel() + " have same width ";}
         System.out.println(result1);
         System.out.println(result2);
+        System.out.println(" ------------- ");
 
     }
     public void compareSharpness(Display m){
-        String result = (this.ppi < m.getPpi()) ?  "   "+ m.getModel() + " have bigger width "
-                + this.getModel()  : "   " + m.getModel() + " have less width " + this.getModel();
+        String result = (this.ppi < m.getPpi()) ?  "   "+ m.getModel() + " have bigger sharpness "
+                + this.getModel()  : (this.ppi == m.getPpi()) ? "   "+ m.getModel() + " have same sharpness "
+                + this.getModel() : "   "+ m.getModel() + " have less sharpness " + this.getModel();
+
 
         System.out.println(result);
+        System.out.println(" ------------- ");
     }
     public void compareWithMonitor(Display m){
         this.compareSize(m);

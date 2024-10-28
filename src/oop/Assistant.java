@@ -26,11 +26,9 @@ public class Assistant extends Display {
         }
     };
     public Display buyDisplay(Display d){
-        if (assignedDisplays.remove(d)) { // Remove and return the display if present
-        return d;
+        if (assignedDisplays.remove(d)) {
     }
         return null;};
     
 }
 
-//give me complete lesson about inheritance and polymorphism in java
