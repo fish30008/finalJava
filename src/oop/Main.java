@@ -21,7 +21,7 @@ public class Main {
 //        Display display2 = new Display("Lenovo", 1440, 2560, 1440);
 //        Display display3 = new Display("Dell", 720, 1280, 720);
 
-        Assistant assistant = new Assistant("Assistant Model", 300, 500, 300, "Alex");
+        Assistant assistant = new Assistant( "Alexandro");
 
 
 

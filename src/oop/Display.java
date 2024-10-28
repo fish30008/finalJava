@@ -38,7 +38,7 @@ public class Display {
                 + this.getModel() :m.getModel() + " have bigger height " + this.getModel();
         String result2;
         if(this.width <  m.getWidth()){ result2 = m.getModel() + " have bigger width "
-                + this.getModel();} else if (this.width == m.getWidth()){ result2 = m.getModel() + " have same width ";}
+                + this.getModel();} else if (this.width == m.getWidth()){ result2 = m.getModel() + " have same width " + this.width;}
         else { result2 = m.getModel() + " have same width ";}
         System.out.println(result1);
         System.out.println(result2);

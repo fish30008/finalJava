@@ -1,34 +1,35 @@
 package oop;
 
-
 import java.util.List;
 import java.util.ArrayList;
 
-public class Assistant extends Display {
+public class Assistant {
 
     private String assistantName;
     private List<Display> assignedDisplays;
 
-    public Assistant(String model, float ppi, int width, int height, String assistantName) {
-        super(model, ppi, width, height);
+    public Assistant(String assistantName) {
         this.assistantName = assistantName;
         this.assignedDisplays = new ArrayList<>();
     }
 
-    public void assignDisplay(Display d){
+    public void assignDisplay(Display d) {
         assignedDisplays.add(d);
-    };
-    public void assist(){
-        for(int i = 0; i < assignedDisplays.size() - 1; i++){
-            Display currentDisplay = assignedDisplays.get(i);
-            Display nextDisplay = assignedDisplays.get(i + 1);
+    }
+
+    public void assist() {
+       for(int j = 0; j < assignedDisplays.size()-1; j++) {
+        for (int i = j+1; i < assignedDisplays.size(); i++) {
+            Display currentDisplay = assignedDisplays.get(j);
+            Display nextDisplay = assignedDisplays.get(i);
             currentDisplay.compareWithMonitor(nextDisplay);
         }
-    };
-    public Display buyDisplay(Display d){
-        if (assignedDisplays.remove(d)) {
-    }
-        return null;};
-    
-}
+    }}
 
+    public Display buyDisplay(Display d) {
+        if (assignedDisplays.remove(d)) {
+            System.out.println("Thanks for purchase = " + d.getModel() + ", give tips for " + this.assistantName);
+            return d;
+        }else{ System.out.println("display sold"); return null;}
+    }
+}
