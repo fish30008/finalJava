@@ -1,84 +1,70 @@
 package oop;
+
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Display> displayList = new ArrayList<Display>();
 
-        displayList.add(new Display("Asus", 50, 50, 1080));
-        displayList.add(new Display("Lenovo", 1250, 5320, 1080));
-        displayList.add(new Display("Dell", 1000, 500, 1080));
+        System.out.println("Please specify a task (1 for Display tasks, 2 for File tasks): ");
+        Scanner scanner = new Scanner(System.in);
+        int taskOption = scanner.nextInt();
+        scanner.nextLine();
 
-//        for (Display display1 : displayList) {
-//            for (Display display2 : displayList) {
-//                if (display1 != display2) {
-//                    display1.compareSize(display2);
-//                }
-//            }
-//        }
-//        Display display1 = new Display("Asus", 1080, 1920, 1080);
-//        Display display2 = new Display("Lenovo", 1440, 2560, 1440);
-//        Display display3 = new Display("Dell", 720, 1280, 720);
+        switch (taskOption) {
+            case 1:
+                // Task 1-3: Display and Assistant functionality
+                ArrayList<Display> displayList = new ArrayList<>();
 
-        Assistant assistant = new Assistant( "Alexandro");
+                displayList.add(new Display("Asus", 50, 50, 1080));
+                displayList.add(new Display("Lenovo", 1250, 5320, 1080));
+                displayList.add(new Display("Dell", 1000, 500, 1080));
 
+                Assistant assistant = new Assistant("Alexandro");
 
+                assistant.assignDisplay(displayList.get(0));
+                assistant.assignDisplay(displayList.get(1));
+                assistant.assignDisplay(displayList.get(2));
 
-        // Assign displays to the Assistant
-//        FileReader file = new FileReader();
-//        file.ReadFile("output.txt");
+                assistant.assist();
 
 
+                assistant.buyDisplay(displayList.get(1));
+                assistant.buyDisplay(displayList.get(1));
+                break;
 
-        assistant.assignDisplay(displayList.get(0));
-        assistant.assignDisplay(displayList.get(1));
-        assistant.assignDisplay(displayList.get(2));
+            case 2:
+                        if (args.length == 0) {
+            System.out.println("Please specify a task (1 for Display tasks, 2 for File tasks)");
+            return;
+        }
+                FileReaderUtils fileReader = new FileReaderUtils();
+                for (int i = 0; i < args.length; i++) {
+                    String filePath = args[i];
+                    try {
+                        String content = fileReader.readFileIntoString(filePath);
+                        TextData textData = new TextData(content, filePath);
+                        displayFileData(textData);
+                    } catch (IOException e) {
+                        System.out.println("Could not read file: " + filePath);
+                        e.printStackTrace();
+                    }
+                }
+                break;
 
-        // Use the assist method to compare displays
-        assistant.assist();
+            default:
+                System.out.println("Invalid task option. Please provide 1 or 2 as the task number.");
+                break;
+        }
+    }
 
-        // Buy a display
-        assistant.buyDisplay(displayList.get(1));
-
-        // Attempt to buy the same display again
-        assistant.buyDisplay(displayList.get(1));
+    private static void displayFileData(TextData textData) {
+        System.out.println("File Name: " + textData.getFileName());
+        System.out.println("Number of Vowels: " + textData.getNumberOfVowels());
+        System.out.println("Number of Consonants: " + textData.getNumberOfConsonants());
+        System.out.println("Number of Letters: " + textData.getNumberOfLetters());
+        System.out.println("Number of Sentences: " + textData.getNumberOfSentences());
+        System.out.println("Longest Word: " + textData.getLongestWord());
+        System.out.println("-----------");
     }
 }
-
-
-
-
-//Task nr 2 and 4 with file and text proccessing
-//public class Main {
-//    public static void main(String[] args) {
-//        if (args.length == 0) {
-//            System.out.println("Please provide file paths as command-line arguments.");
-//            return;
-//        }
-//
-//        FileReaderUtils fileReader = new FileReaderUtils();
-//        for (String filePath : args) {
-//            try {
-//                String content = fileReader.readFileIntoString(filePath);
-//                TextData textData = new TextData(content, filePath);
-//                displayFileData(textData);
-//            } catch (IOException e) {
-//                System.out.println("Could not read file: " + filePath);
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//
-//    private static void displayFileData(TextData textData) {
-//        System.out.println("File Name: " + textData.getFileName());
-//        System.out.println("Number of Vowels: " + textData.getNumberOfVowels());
-//        System.out.println("Number of Consonants: " + textData.getNumberOfConsonants());
-//        System.out.println("Number of Letters: " + textData.getNumberOfLetters());
-//        System.out.println("Number of Sentences: " + textData.getNumberOfSentences());
-//        System.out.println("Longest Word: " + textData.getLongestWord());
-//        System.out.println("-----------");
-//    }
-//
-//
-//}

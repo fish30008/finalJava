@@ -90,8 +90,8 @@ public class TextData {
 
     private String findLongestWord() {
         String longest = "";
-        String[] words = text.split("\\W+");
-        for (String word : words) {
+        String[] words = text.split("\\W+");//split by whitespaces
+        for (String word : words) {//finding longest word
             if (word.length() > longest.length()) {
                 longest = word;
             }
