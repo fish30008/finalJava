@@ -24,6 +24,8 @@ bin/
 
 ### VS Code ###
 .vscode/
+# Ignore target directory
+/target/
 
 ### Mac OS ###
 .DS_Store
