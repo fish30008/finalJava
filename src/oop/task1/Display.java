@@ -1,4 +1,4 @@
-package oop;
+package oop.task1;
 
 public class Display {
     private String model;

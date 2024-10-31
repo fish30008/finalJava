@@ -1,4 +1,6 @@
-package oop;
+package oop.task4;
+
+import oop.task1.Display;
 
 import java.util.List;
 import java.util.ArrayList;

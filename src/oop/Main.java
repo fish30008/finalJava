@@ -1,12 +1,17 @@
 package oop;
 
+import oop.task1.Display;
+import oop.task2.FileReaderUtils;
+import oop.task3.TextData;
+import oop.task4.Assistant;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Please specify a task (1 for Display tasks, 2 for File tasks): ");
+        System.out.println("Please specify a task (1 for Display/Assist tasks, 2 for File/Text proccessing tasks): ");
         Scanner scanner = new Scanner(System.in);
         int taskOption = scanner.nextInt();
         scanner.nextLine();
