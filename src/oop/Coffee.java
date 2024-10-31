@@ -14,6 +14,7 @@ public class Coffee {
 
     void printCoffeeDetails() {
         System.out.println("----------");
-        System.out.println(name + " intensity: "+ intensity.toString());
+//        System.out.println("Making " + name);
+        System.out.println("intensity: " + intensity.toString());
     }
 }

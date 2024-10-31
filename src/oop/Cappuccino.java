@@ -13,6 +13,6 @@ public class Cappuccino extends Coffee{
     @Override
     void printCoffeeDetails() {
         super.printCoffeeDetails();
-        System.out.println(name + " milk " + mlOfMilk + " ml ");
+        System.out.println("added " + " milk " + mlOfMilk + " ml ");
     }
 }

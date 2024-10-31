@@ -13,6 +13,6 @@ public class SyrupCappuccino extends Cappuccino {
     @Override
     void printCoffeeDetails() {
         super.printCoffeeDetails();
-        System.out.println(name + "syrup " + syrup + " ml ");
+        System.out.println("added " + "syrup " + syrup + " ml ");
     }
 }
