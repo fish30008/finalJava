@@ -1,4 +1,4 @@
-package oop;
+package oop.task3;
 
 
 public class SyrupCappuccino extends Cappuccino {
@@ -14,5 +14,9 @@ public class SyrupCappuccino extends Cappuccino {
     void printCoffeeDetails() {
         super.printCoffeeDetails();
         System.out.println("added " + "syrup " + syrup + " ml ");
+    }
+    public final SyrupCappuccino SyrupCappuccino() {
+        printCoffeeDetails();
+        return this;
     }
 }

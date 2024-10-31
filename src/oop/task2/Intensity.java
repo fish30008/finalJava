@@ -1,4 +1,4 @@
-package oop;
+package oop.task2;
 
 public enum Intensity {
     LIGHT,

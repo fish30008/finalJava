@@ -1,8 +1,8 @@
-package oop;
+package oop.task4;
 
 public class Coffee {
     private Intensity intensity;
-    private final String name = "Coffe";
+    private final String name = "Coffee";
 
     public Intensity getIntensity() {
         return intensity;
@@ -12,9 +12,9 @@ public class Coffee {
         this.intensity = intensity;
     }
 
+
     void printCoffeeDetails() {
         System.out.println("----------");
-//        System.out.println("Making " + name);
-        System.out.println("intensity: " + intensity.toString());
+        System.out.println(name + " intensity: " + intensity.toString());
     }
 }

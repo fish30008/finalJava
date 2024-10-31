@@ -1,7 +1,7 @@
-package oop;
+package oop.task3;
 
 
-public class Americano extends Coffee{
+public class Americano extends Coffee {
 
     private final String name = "Americano";
     private int mlOfWater;
@@ -16,5 +16,10 @@ public class Americano extends Coffee{
         super.printCoffeeDetails();
         System.out.println("Making " + name);
         System.out.println("Adding water " + mlOfWater + " ml");
+    }
+
+    public final Americano makeAmericano() {
+        printCoffeeDetails();
+        return this;
     }
 }

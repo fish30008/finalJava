@@ -1,0 +1,14 @@
+package oop.task1;
+
+
+public class PumpkinSpiceLatte extends Cappuccino {
+
+    private final String name = "Pumpkin Spice Latte";
+    private SyrupType syrup;
+    private int mgOfPumpkinSpice;
+    public PumpkinSpiceLatte(Intensity intensity, int mlOfMilk, int mgOfPumpkinSpice) {
+        super(intensity, mlOfMilk);
+        this.mgOfPumpkinSpice = mgOfPumpkinSpice;
+    }
+
+}
