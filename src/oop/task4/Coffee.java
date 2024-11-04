@@ -1,6 +1,6 @@
 package oop.task4;
 
-public class Coffee {
+class Coffee {
     private Intensity intensity;
     private final String name = "Coffee";
 

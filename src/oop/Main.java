@@ -1,4 +1,9 @@
-package oop.task4;
+package oop;
+
+import oop.task4.Barista;
+import oop.task4.Intensity;
+import oop.task4.SyrupType;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +16,7 @@ public class Main {
         HashMap<String, Map<String, Object>> coffeeOrders = new HashMap<>();
 
         while (true) {
-            System.out.println("Select coffee type: 1 - Americano, 2 - Cappuccino, 3 - SyrupCappuccino, 4 - Pumpkin Spice Latte, 5 - Exit");
+            System.out.println("Select coffee type:1 - Americano, 2 - Cappuccino, 3 - SyrupCappuccino, 4 - Pumpkin Spice Latte, 5 - Exit");
             int choice = scanner.nextInt();
             scanner.nextLine();  // Consume newline
 
@@ -67,7 +72,6 @@ public class Main {
                     System.out.println("Invalid selection.");
             }
         }
-
         // Prepare all coffee orders
         barista.prepareMultipleCoffees(coffeeOrders);
         scanner.close();

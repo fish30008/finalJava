@@ -1,7 +1,7 @@
 package oop.task4;
 
 
-public class PumpkinSpiceLatte extends Cappuccino {
+class PumpkinSpiceLatte extends Cappuccino {
 
     private final String name = "Pumpkin Spice Latte";
     private SyrupType syrup;

@@ -12,7 +12,7 @@ public class Barista {
 
             switch (coffeeType.toLowerCase()) {
                 case "americano":
-                    Intensity intensity = (Intensity) params.get("intensity");
+                    Intensity intensity = (Intensity) params.get("intensity");//accessing parametr by type
                     int mlOfWater = (int) params.get("mlOfWater");
                     makeAmericano(intensity, mlOfWater);
                     break;
