@@ -1,4 +1,4 @@
-package oop.task3;
+package oop.task2;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -90,7 +90,7 @@ public class TextData {
 
     private String findLongestWord() {
         String longest = "";
-        String[] words = text.split("\\W+");//split by whitespaces
+        String[] words = text.split(" "); //matches any non word character
         for (String word : words) {//finding longest word
             if (word.length() > longest.length()) {
                 longest = word;

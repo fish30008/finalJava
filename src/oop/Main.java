@@ -2,8 +2,8 @@ package oop;
 
 import oop.task1.Display;
 import oop.task2.FileReaderUtils;
-import oop.task3.TextData;
-import oop.task4.Assistant;
+import oop.task2.TextData;
+import oop.task3.Assistant;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,8 +34,8 @@ public class Main {
                 assistant.assist();
 
 
-                assistant.buyDisplay(displayList.get(1));
-                assistant.buyDisplay(displayList.get(1));
+                //assistant.buyDisplay(displayList.get(1));
+                //assistant.buyDisplay(displayList.get(1));
                 break;
 
             case 2:
@@ -43,6 +43,7 @@ public class Main {
             System.out.println("Please specify a task (1 for Display tasks, 2 for File tasks)");
             return;
         }
+                //Task 4
                 FileReaderUtils fileReader = new FileReaderUtils();
                 for (int i = 0; i < args.length; i++) {
                     String filePath = args[i];
