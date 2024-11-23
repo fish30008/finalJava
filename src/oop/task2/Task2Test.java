@@ -1,19 +1,15 @@
 package oop.task2;
+import oop.CarLoader;
 import oop.Car;
-import oop.Dineable;
-import oop.Refuelable;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 
 public class Task2Test {
-    public static void main(String[] args) {
-        // Test data
-        List<Car> cars = new ArrayList<>();
-        cars.add(new Car(1, "ELECTRIC", "PEOPLE", false, 42));
-        cars.add(new Car(2, "GAS", "ROBOTS", true, 35));
-        cars.add(new Car(3, "ELECTRIC", "ROBOTS", true, 40));
-        cars.add(new Car(4, "GAS", "PEOPLE", false, 20));
+    public static void main(String[] args) throws IOException {
+        // Load cars from JSON files
+        String folderPath = "queue"; // Update this with your actual JSON folder path
+        List<Car> cars = CarLoader.loadCars(folderPath);
 
         // Implementations
         Refuelable electricStation = new ElectricStation();

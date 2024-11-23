@@ -40,4 +40,24 @@ public class Car {
         return String.format("Car{id=%d, type=%s, passengers=%s, isDining=%b, consumption=%d}",
                 id, type, passengers, isDining, consumption);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getPassengers() {
+        return passengers;
+    }
+
+    public boolean isDining() {
+        return isDining;
+    }
+
+    public int getConsumption() {
+        return consumption;
+    }
 }
