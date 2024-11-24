@@ -1,6 +1,7 @@
-package oop;
+package oop.task3;
 
 
+import oop.Car;
 import oop.task1.ArrayListQueue;
 import oop.task2.Dineable;
 import oop.task2.Refuelable;
