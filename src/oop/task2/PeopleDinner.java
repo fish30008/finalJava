@@ -11,6 +11,6 @@ public class PeopleDinner implements Dineable {
 
     public void serveDinner(String carId) {
         peopleCount++;
-        System.out.println("Refueling gas car " + carId + ".");
+        System.out.println("Serve People Dinner" + carId + ".");
     }
 }

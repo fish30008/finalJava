@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CarLoader {
     public static List<Car> loadCars(String folderPath) throws IOException {
-        List<Car> cars = new ArrayList<>();
+        ArrayList<Car> cars = new ArrayList<>();
 
         for (int i = 1; i <= 30; i++) {
             String filePath = folderPath + "/Car" + i + ".json";
