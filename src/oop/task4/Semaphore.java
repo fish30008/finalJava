@@ -4,7 +4,7 @@ import oop.Car;
 import oop.task1.ArrayListQueue;
 
 public class Semaphore {
-    private final ArrayListQueue<Car> electricPeopleQueue;
+    private ArrayListQueue<Car> electricPeopleQueue;
     private final ArrayListQueue<Car> gasPeopleQueue;
     private final ArrayListQueue<Car> electricRobotsQueue;
     private final ArrayListQueue<Car> gasRobotsQueue;

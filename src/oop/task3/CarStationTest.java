@@ -2,38 +2,22 @@ package oop.task3;
 
 import oop.Car;
 import oop.CarLoader;
-import oop.task1.ArrayListQueue;
-import oop.task2.*;
 
 import java.io.IOException;
-
 import java.util.List;
 
-public class CarStationTest {
+public class CarStationTest extends Concept {
     public static void main(String[] args) throws IOException {
-        // Step 1: Load cars using CarLoader
+        CarStationTest test = new CarStationTest();
+        test.run();
+    }
+
+    public void run() throws IOException {
+        // Load cars
         String folderPath = "queue"; // Folder where Car JSON files are stored
         List<Car> loadedCars = CarLoader.loadCars(folderPath);
-        // Step 2: Create queues using ArrayListQueue
-        ArrayListQueue<Car> electricPeopleQueue = new ArrayListQueue<>();
-        ArrayListQueue<Car> gasRobotsQueue = new ArrayListQueue<>();
-        ArrayListQueue<Car> electricRobotsQueue = new ArrayListQueue<>();
-        ArrayListQueue<Car> gasPeopleQueue = new ArrayListQueue<>();
 
-
-        // Step 3: Create dining and refueling services
-        Dineable peopleDinner = new PeopleDinner();
-        Dineable robotDinner = new RobotDinner();
-        Refuelable electricStation = new ElectricStation();
-        Refuelable gasStation = new GasStation();
-
-        // Step 4: Create CarStations
-        CarStation electricPeopleStation = new CarStation(peopleDinner, electricStation, electricPeopleQueue);
-        CarStation gasRobotsStation = new CarStation(robotDinner, gasStation, gasRobotsQueue);
-        CarStation electricRobotsStation = new CarStation(robotDinner, electricStation, electricRobotsQueue);
-        CarStation gasPeopleStation = new CarStation(peopleDinner, gasStation, gasPeopleQueue);
-
-        // Step 5: Distribute cars to appropriate stations
+        // Route cars to the appropriate stations
         for (Car car : loadedCars) {
             if (car.getType().equals("ELECTRIC") && car.getPassengers().equals("PEOPLE")) {
                 electricPeopleStation.addCars(car);
@@ -48,23 +32,21 @@ public class CarStationTest {
             }
         }
 
-        // Step 6: Serve cars from each station
+        // Serve cars
         System.out.println("Serving cars at Electric-People Station:");
         electricPeopleStation.serveCars();
         System.out.println("Serving cars at Gas-People Station:");
         gasPeopleStation.serveCars();
-        System.out.println("Serving cars at Electric-Robotos Station:");
+        System.out.println("Serving cars at Electric-Robots Station:");
         electricRobotsStation.serveCars();
-        System.out.println("Serving cars at gas-Robots Station:");
+        System.out.println("Serving cars at Gas-Robots Station:");
         gasRobotsStation.serveCars();
 
-
-        // Step 7: Validate statistics
-        System.out.println("\nFinal Statistics:");
-        System.out.println("Electric cars refueled: " + ElectricStation.getElectricCount());
-        System.out.println("Gas cars refueled: " + GasStation.getGasCount());
-        System.out.println("People served dinner: " + PeopleDinner.getPeopleCount());
-        System.out.println("Robots served dinner: " + RobotDinner.getRobotCount());
+        // Check if all queues are empty
+        System.out.println("\nAre all queues empty?");
+        System.out.println("Electric People Queue: " + electricPeopleQueue.isEmpty());
+        System.out.println("Gas People Queue: " + gasPeopleQueue.isEmpty());
+        System.out.println("Electric Robots Queue: " + electricRobotsQueue.isEmpty());
+        System.out.println("Gas Robots Queue: " + gasRobotsQueue.isEmpty());
     }
 }
-

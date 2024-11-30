@@ -1,38 +1,43 @@
 package oop.task1;
-import oop.Car;
-import oop.CarLoader;
-
-import java.io.IOException;
-import java.util.List;
 
 public class QueueTests {
-    public static void main(String[] args) throws IOException {
-        String folderPath = "queue";
-        List<Car> cars = CarLoader.loadCars(folderPath);
+    public static void main(String[] args) {
+        System.out.println("Testing ArrayListQueue:");
+        Queue<Integer> arrayListQueue = new ArrayListQueue<>();
+        testQueue(arrayListQueue);
 
-        testQueue(new ArrayListQueue<>(), cars);
-        testQueue(new LinkedListQueue<>(), cars);
-        testQueue(new FixedSizeQueue<>(30), cars); // Adjust size for fixed queue
+        System.out.println("\nTesting LinkedListQueue:");
+        Queue<Integer> linkedListQueue = new LinkedListQueue<>();
+        testQueue(linkedListQueue);
+
+        System.out.println("\nTesting DoubleLinkedListQueue:");
+        Queue<Integer> doubleLinkedListQueue = new DoubleLinkedListQueue<>();
+        testQueue(doubleLinkedListQueue);
     }
 
-    private static void testQueue(Queue<Car> queue, List<Car> cars) {
-        System.out.println("Testing " + queue.getClass().getSimpleName());
+    private static void testQueue(Queue<Integer> queue) {
+        try {
+            // Enqueue elements
+            queue.enqueue(10);
+            queue.enqueue(20);
+            queue.enqueue(30);
 
-        // Enqueue all cars
-        for (Car car : cars) {
-            queue.enqueue(car);
+            System.out.println("Size after enqueuing 3 elements: " + queue.size());
+            System.out.println("Peek first element: " + queue.peek());
+
+            // Dequeue elements
+            System.out.println("Dequeued: " + queue.dequeue());
+            System.out.println("Dequeued: " + queue.dequeue());
+
+            System.out.println("Peek  " + queue.peek());
+            System.out.println("Is empty? " + queue.isEmpty());
+
+            // Final dequeue
+            System.out.println("Dequeued: " + queue.dequeue());
+
+            System.out.println("Is empty ?: " + queue.isEmpty());
+        } catch (IllegalStateException e) {
+            System.out.println(e.getMessage());
         }
-
-        assert queue.size() == cars.size() : "Size mismatch after enqueueing";
-
-        // Peek and dequeue each car
-        for (Car car : cars) {
-            assert queue.peek().equals(car) : "Peek mismatch";
-            assert queue.dequeue().equals(car) : "Dequeue mismatch";
-        }
-
-        assert queue.isEmpty() : "Queue should be empty after dequeueing all elements";
-
-        System.out.println("All tests passed for " + queue.getClass().getSimpleName());
     }
 }

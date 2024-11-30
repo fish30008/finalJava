@@ -22,17 +22,9 @@ public class  CarStation {
     public void serveCars(){
         while (!queue.isEmpty()) {
             Car car = queue.dequeue(); // Dequeue the first car
-
-            // Serve dinner if needed
             if (car.isDining()) {
-                if (car.getPassengers().equals("PEOPLE")) {
-                    diningService.serveDinner(String.valueOf(car.getId()));
-                } else if (car.getPassengers().equals("ROBOTS")) {
-                    diningService.serveDinner(String.valueOf(car.getId()));
-                }
+                diningService.serveDinner(String.valueOf(car.getId()));
             }
-
-            // Refuel the car
             refuelingService.refuel(String.valueOf(car.getId()));
 
             System.out.println("Car served: " + car);
